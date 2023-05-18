@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SWF Player</title>
+</head>
+<body>
+  <div id="flashContainer"></div>
+
+  <script>
+    // 获取容器元素
+    var flashContainer = document.getElementById('flashContainer');
+
+    // 创建<object>元素
+    var flashObject = document.createElement('object');
+    flashObject.setAttribute('classid', 'clsid:D27CDB6E-AE6D-11cf-96B8-444553540000');
+    flashObject.setAttribute('width', '300');
+    flashObject.setAttribute('height', '300');
+
+    // 创建<param>元素
+    var param = document.createElement('param');
+    param.setAttribute('name', 'movie');
+    param.setAttribute('value', '1.swf');
+    flashObject.appendChild(param);
+
+    // 创建<embed>元素
+    var embed = document.createElement('embed');
+    embed.setAttribute('src', '1.swf');
+    embed.setAttribute('width', '300');
+    embed.setAttribute('height', '300');
+    flashObject.appendChild(embed);
+
+    // 将<object>元素添加到容器中
+    flashContainer.appendChild(flashObject);
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- 静态方式
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="300">
+    <param name="movie" value="path/to/your/file.swf" />
+    <embed src="path/to/your/file.swf" width="300" height="300">
+    </embed>
+  </object>
+ -->  
+  <!-- 动态方式
+  <div id="flashContainer"></div>
+  <script>
+    var flashContainer = document.getElementById('flashContainer');
+    var flashObject = document.createElement('object');
+    flashObject.setAttribute('classid', 'clsid:D27CDB6E-AE6D-11cf-96B8-444553540000');
+    flashObject.setAttribute('width', '300');
+    flashObject.setAttribute('height', '300');
+    
+    var param = document.createElement('param');
+    param.setAttribute('name', 'movie');
+    param.setAttribute('value', 'path/to/your/file.swf');
+    flashObject.appendChild(param);
+    
+    var embed = document.createElement('embed');
+    embed.setAttribute('src', 'path/to/your/file.swf');
+    embed.setAttribute('width', '300');
+    embed.setAttribute('height', '300');
+    flashObject.appendChild(embed);
+    
+    flashContainer.appendChild(flashObject);
+  </script>
+ -->  
